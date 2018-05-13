@@ -26,10 +26,6 @@ public class SourceQueryOption {
     @Column(name = "RequestPath")
     private String RequestPath;
 
-    @JsonIgnoreProperties
-    @Column(name = "RequestParameters")
-    private String RequestParameters;
-
     @Column(name = "ResponsePath")
     private String ResponsePath ;
 
