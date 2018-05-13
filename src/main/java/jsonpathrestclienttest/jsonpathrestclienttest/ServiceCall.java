@@ -1,6 +1,7 @@
 package jsonpathrestclienttest.jsonpathrestclienttest;
 
 import com.jayway.jsonpath.JsonPath;
+import jsonpathrestclienttest.jsonpathrestclienttest.models.WeatherDetail;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.svenson.JSONParser;
@@ -25,14 +26,16 @@ public class ServiceCall {
             String content = EntityUtils.toString(entity);
             JSONParser parser = new JSONParser();
 
-
-
             for (String key: hm.keySet()
                     ) {
                 content = content.replace(hm.get(key), key);
             }
 
-            List<String> authors = JsonPath.read(content, "$.store.book[*].author");
+            List<String> authors = JsonPath.read(content, responsePath);
+            for (String s: authors
+                 ) {
+                WeatherDetail wd = parser.parse(WeatherDetail.class, s);
+            }
 
         }
         catch (Exception e){
