@@ -25,18 +25,19 @@ public class WeatherDetail {
     @NotBlank
     private String Description;
 
-    @Column(name = "Temperature")
+    @Column(name = "MinTemperature")
     @NotBlank
-    private Long Temperature;
+    private Long MinTemperature;
+
+    @Column(name = "MaxTemperature")
+    @NotBlank
+    private Long MaxTemperature;
 
     @Column(name = "Pressure")
     private Long Pressure;
 
-    @Column(name = "Rainy")
-    private Long Rainy;
-
-    @Column(name = "Moisture")
-    private Long Moisture;
+    @Column(name = "Humidity")
+    private Long Humidity;
 
     @Column(name = "Wind")
     private Long Wind;
